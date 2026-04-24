@@ -1,0 +1,35 @@
+/* ===== MAIN STYLESHEET ===== */
+/* Imports all CSS partials in correct order */
+
+@import './variables.css';
+@import './reset.css';
+@import './typography.css';
+@import './grain.css';
+@import './cursor.css';
+@import './preloader.css' ;
+@import './layout.css';
+@import './hero.css';
+@import './manifesto.css';
+@import './about.css';
+@import './work.css';
+@import './now.css';
+@import './contact.css';
+@import './responsive.css';
+
+/* ===== GLOBAL ANIMATION STATES ===== */
+
+/* Elements that will be animated start hidden */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+[data-animate="char"] {
+  opacity: 0;
+  transform: translateY(0);
+}
+
+[data-animate="words"] {
+  opacity: 1;
+  transform: none;
+}

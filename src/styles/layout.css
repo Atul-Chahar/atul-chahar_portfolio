@@ -1,0 +1,100 @@
+/* ===== LAYOUT & HUD ===== */
+
+main {
+  position: relative;
+  z-index: 2;
+}
+
+.section {
+  position: relative;
+  min-height: 100vh;
+  padding: var(--space-section) var(--padding-x);
+  display: flex;
+  align-items: center;
+}
+
+.section__inner {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.section__header {
+  margin-bottom: var(--space-lg);
+}
+
+.section__label {
+  font-size: var(--fs-hud);
+  color: var(--accent);
+  letter-spacing: 0.15em;
+  margin-bottom: var(--space-sm);
+  display: block;
+}
+
+.section__title {
+  font-size: var(--fs-display);
+  color: var(--text-primary);
+  line-height: 0.9;
+}
+
+/* ===== HUD SYSTEM ===== */
+.hud {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  padding: var(--hud-padding);
+  font-size: var(--fs-hud);
+  color: var(--text-secondary);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity var(--duration-slow) var(--ease-out);
+}
+
+.hud.is-visible {
+  opacity: 1;
+}
+
+.hud__tl, .hud__tr {
+  color: var(--accent);
+}
+
+.hud__tl {
+  position: absolute;
+  top: var(--hud-padding);
+  left: var(--hud-padding);
+}
+
+.hud__tr {
+  position: absolute;
+  top: var(--hud-padding);
+  right: var(--hud-padding);
+}
+
+.hud__bottom-line {
+  position: absolute;
+  bottom: calc(var(--hud-padding) + 2rem);
+  left: var(--hud-padding);
+  right: var(--hud-padding);
+  height: 1px;
+  background-color: var(--accent);
+}
+
+.hud__bl {
+  position: absolute;
+  bottom: var(--hud-padding);
+  left: var(--hud-padding);
+}
+
+.hud__br {
+  position: absolute;
+  bottom: var(--hud-padding);
+  right: var(--hud-padding);
+  text-align: right;
+  line-height: 1.5;
+}
+
+.hud__scroll {
+  color: var(--accent);
+}

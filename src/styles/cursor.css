@@ -1,0 +1,59 @@
+/* ===== CUSTOM CURSOR ===== */
+
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  pointer-events: none;
+  mix-blend-mode: difference;
+}
+
+.cursor__dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--text-primary);
+  border-radius: 50%;
+  position: fixed;
+  top: -4px;
+  left: -4px;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.cursor__ring {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--text-primary);
+  border-radius: 50%;
+  position: fixed;
+  top: -20px;
+  left: -20px;
+  opacity: 0.5;
+  transition: width 0.3s var(--ease-out),
+              height 0.3s var(--ease-out),
+              top 0.3s var(--ease-out),
+              left 0.3s var(--ease-out),
+              opacity 0.3s var(--ease-out),
+              border-color 0.3s var(--ease-out);
+}
+
+/* Hover state for interactive elements */
+.cursor--hover .cursor__ring {
+  width: 60px;
+  height: 60px;
+  top: -30px;
+  left: -30px;
+  border-color: var(--accent);
+  opacity: 0.8;
+}
+
+.cursor--hover .cursor__dot {
+  transform: scale(0);
+}
+
+/* Hide on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .cursor {
+    display: none !important;
+  }
+}

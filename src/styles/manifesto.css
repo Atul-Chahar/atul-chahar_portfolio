@@ -1,0 +1,44 @@
+/* ===== MANIFESTO SECTION ===== */
+
+.section--manifesto {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 0;
+  width: 100%;
+}
+
+.manifesto__content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 4vw;
+}
+
+.manifesto__headline {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1200px; /* limits width on ultra wide but massive internally */
+}
+
+.manifesto__line {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 7vw, 9.5rem);
+  line-height: 0.85;
+  color: inherit;
+  white-space: nowrap;
+}
+
+.manifesto__line--indent {
+  margin-left: 10vw;
+}
+
+/* Words animated via JS */
+.manifesto__line .word {
+  opacity: 0.05; /* Start almost invisible */
+  display: inline-block;
+}
