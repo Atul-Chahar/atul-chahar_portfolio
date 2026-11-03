@@ -59,7 +59,7 @@ const fragment = /* glsl */ `
     z.y -= (1.0 - uReveal) * 0.18 * (1.0 - uv.y);
     vec2 c = cover(z);
 
-    float shift = 0.0035 * uHover + min(abs(uSpeed) * 0.00012, 0.012);
+    float shift = 0.002 * uHover + min(abs(uSpeed) * 0.00012, 0.012);
     vec3 col;
     col.r = texture2D(uTex, c + vec2(shift, 0.0)).r;
     col.g = texture2D(uTex, c).g;

@@ -53,8 +53,11 @@ export function createHero(canvas, { reduced = false } = {}) {
     const dpr = Math.min(window.devicePixelRatio, 2);
     const cw = Math.min(3200, Math.round(w * OVERSCAN * dpr));
     const ch = Math.round(cw * (h / w));
-    textCanvas.width = cw;
-    textCanvas.height = ch;
+    if (textCanvas.width !== cw || textCanvas.height !== ch) {
+      textCanvas.width = cw;
+      textCanvas.height = ch;
+      textTex.dispose(); // reallocate the GPU texture at the new size
+    }
 
     ctx.fillStyle = NIGHT;
     ctx.fillRect(0, 0, cw, ch);
@@ -67,7 +70,7 @@ export function createHero(canvas, { reduced = false } = {}) {
     }
 
     // The name, set huge and tight.
-    const size = Math.min(cw * (small ? 0.235 : 0.2), ch * 0.3);
+    const size = Math.min(cw * (small ? 0.18 : 0.2), ch * 0.3);
     ctx.fillStyle = PAPER;
     ctx.textAlign = 'center';
     ctx.textBaseline = 'alphabetic';
@@ -84,18 +87,19 @@ export function createHero(canvas, { reduced = false } = {}) {
   const glass = new THREE.MeshPhysicalMaterial({
     color: 0xffffff,
     metalness: 0,
-    roughness: 0.03,
+    roughness: 0,
     transmission: 1,
-    thickness: 2.4,
-    ior: 1.48,
-    dispersion: 7,
-    iridescence: 0.55,
-    iridescenceIOR: 1.25,
-    clearcoat: 1,
-    clearcoatRoughness: 0.04,
-    attenuationColor: new THREE.Color('#aab7ff'),
-    attenuationDistance: 5,
-    envMapIntensity: 1.1,
+    thickness: 3.2,
+    ior: 1.32,
+    dispersion: 3.5,
+    iridescence: 0.18,
+    iridescenceIOR: 1.2,
+    clearcoat: 0.6,
+    clearcoatRoughness: 0.02,
+    specularIntensity: 0.6,
+    attenuationColor: new THREE.Color('#c3ccff'),
+    attenuationDistance: 8,
+    envMapIntensity: 0.35,
   });
   const lens = new THREE.Mesh(new THREE.SphereGeometry(1.3, small ? 64 : 128, small ? 64 : 128), glass);
   scene.add(lens);
@@ -188,10 +192,10 @@ export function createHero(canvas, { reduced = false } = {}) {
     const vh = 2 * dist * Math.tan(THREE.MathUtils.degToRad(camera.fov / 2));
     backdrop.scale.set(vh * camera.aspect * OVERSCAN, vh * OVERSCAN, 1);
 
-    const s = small ? 0.72 : Math.min(1.1, 0.75 + camera.aspect * 0.18);
+    const s = small ? 0.55 : Math.min(1.1, 0.75 + camera.aspect * 0.18);
     lens.scale.setScalar(s * intro.scale);
     gate.scale.setScalar(s * intro.scale);
-    base.set(small ? 0.2 : 0.9, small ? 1.1 : 0.85, 0);
+    base.set(small ? 0.3 : 0.9, small ? 0.72 : 0.85, 0);
     drawName(width, height);
   }
 
@@ -216,7 +220,7 @@ export function createHero(canvas, { reduced = false } = {}) {
     time += reduced ? 0 : dt;
     pointer.lerp(target, reduced ? 1 : 0.06);
 
-    const s = (small ? 0.72 : Math.min(1.1, 0.75 + camera.aspect * 0.18)) * intro.scale * (1 + progress * 0.35);
+    const s = (small ? 0.55 : Math.min(1.1, 0.75 + camera.aspect * 0.18)) * intro.scale * (1 + progress * 0.35);
     lens.scale.setScalar(s);
     gate.scale.setScalar(s * (1 + Math.sin(time * 0.8) * 0.01));
 

@@ -41,6 +41,7 @@ html[data-theme='paper'] { --bg: var(--paper); --fg: var(--ink); --fg-2: var(--g
    Base
 ========================================================= */
 *, *::before, *::after { box-sizing: border-box; }
+html, body { overflow-x: clip; }
 html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; background: var(--bg); transition: background-color 700ms var(--ease-out); }
 html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
@@ -170,17 +171,17 @@ section { padding-left: var(--gutter); padding-right: var(--edge); }
 /* =========================================================
    Work: pinned horizontal gallery
 ========================================================= */
-.work { padding: 0; background: var(--bg); transition: background-color 700ms; }
+.work { padding: 0; }
 .work__pin { height: 100svh; overflow: hidden; display: flex; flex-direction: column; padding-top: 88px; }
 .work__head { display: flex; justify-content: space-between; align-items: baseline; padding: 0 var(--edge) 0 var(--gutter); }
 .work__title { font-size: clamp(1.5rem, 2.2vw + 0.6rem, 2.5rem); font-weight: 700; letter-spacing: -0.03em; }
 .work__count { color: var(--fg-2); font-variant-numeric: tabular-nums; }
 .work__track { flex: 1; display: flex; align-items: stretch; gap: clamp(40px, 6vw, 120px); padding: clamp(28px, 4vh, 56px) var(--edge) clamp(28px, 5vh, 64px) var(--gutter); width: max-content; will-change: transform; }
 
-.proj { width: min(86vw, 1320px); flex: none; display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: clamp(24px, 4vw, 64px); align-items: center; }
+.proj { width: min(86vw, 1320px); flex: none; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(24px, 4vw, 64px); align-items: center; }
 .proj__text { display: grid; gap: 16px; align-content: center; }
 .proj__year { color: var(--fg-2); font-size: var(--t-small); }
-.proj__name { font-size: clamp(3rem, 6.4vw, 7.5rem); font-weight: 800; letter-spacing: -0.055em; line-height: 0.86; overflow-wrap: anywhere; }
+.proj__name { font-size: clamp(2.75rem, 4.7vw, 6rem); font-weight: 800; letter-spacing: -0.055em; line-height: 0.86; white-space: nowrap; }
 .proj__line { font-size: var(--t-lede); line-height: 1.35; letter-spacing: -0.01em; max-width: 30ch; }
 .proj__result { color: var(--fg-2); display: flex; align-items: center; gap: 10px; }
 .proj__result::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--cobalt-hi); flex: none; }
@@ -328,3 +329,9 @@ section { padding-left: var(--gutter); padding-right: var(--edge); }
 @media (prefers-reduced-motion: reduce) {
   html:not(.motion-full) *, html:not(.motion-full) *::before, html:not(.motion-full) *::after { transition-duration: 1ms !important; animation-duration: 1ms !important; animation-iteration-count: 1 !important; }
 }
+
+/* Reduced motion: the gallery becomes a plain vertical stack */
+.no-pin .work__pin { height: auto; overflow: visible; }
+.no-pin .work__track { flex-direction: column; width: auto; gap: 96px; }
+.no-pin .proj { width: 100%; }
+.no-pin .work__count { display: none; }
