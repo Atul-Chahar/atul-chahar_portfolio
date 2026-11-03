@@ -1,305 +1,411 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Atul Chahar — Systems Builder</title>
-    <meta name="description" content="Systems builder at the intersection of code, craft, and curiosity. Build things that matter. Break things that don't. Keep building." />
-    <meta property="og:title" content="Atul Chahar — Systems Builder" />
-    <meta property="og:description" content="Build things that matter. Break things that don't. Keep building." />
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content="en_US" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Atul Chahar — Systems Builder" />
-    <meta name="twitter:description" content="Build things that matter. Break things that don't. Keep building." />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="/src/styles/index.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Atul Chahar, AI engineer</title>
+  <meta name="description" content="Atul Chahar is an AI engineer in Bengaluru. He builds agents, on-device AI and the checks that keep them honest: a model proposes, code verifies, a person approves." />
+  <meta name="theme-color" content="#E8EAE4" />
+  <meta property="og:title" content="Atul Chahar, AI engineer" />
+  <meta property="og:description" content="Agents, on-device AI and the checks that keep them honest." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://atul-chahar-portfolio.vercel.app/" />
+  <meta name="twitter:card" content="summary" />
+  <script>document.documentElement.classList.add('js','is-loading')</script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Person","name":"Atul Chahar","jobTitle":"AI engineer","address":{"@type":"PostalAddress","addressLocality":"Bengaluru","addressCountry":"IN"},"email":"mailto:atulchahar1206@gmail.com","sameAs":["https://github.com/Atul-Chahar","https://www.linkedin.com/in/atul-chahar/","https://x.com/atulchahar77"]}
+  </script>
 </head>
 <body>
-    <!-- Preloader -->
-    <div class="preloader" id="preloader" aria-hidden="true">
-        <span class="preloader__text">ATUL CHAHAR</span>
-    </div>
+  <a class="skip" href="#main">Skip to content</a>
 
-    <!-- Grain Overlay -->
-    <div class="grain" aria-hidden="true"></div>
+  <header class="nav" data-nav>
+    <a class="nav__name" href="#top">Atul Chahar</a>
+    <nav aria-label="Sections">
+      <ul class="nav__links">
+        <li><a href="#approach">Approach</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#record">Record</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <!-- Custom Cursor -->
-    <div class="cursor" aria-hidden="true">
-        <div class="cursor__dot"></div>
-        <div class="cursor__ring"></div>
-    </div>
+  <main id="main" class="page" data-page>
+    <svg class="thread" data-thread aria-hidden="true" focusable="false">
+      <path class="thread__ghost" data-thread-ghost />
+      <path class="thread__line" data-thread-line />
+    </svg>
 
-    <!-- HUD Fixed Elements -->
-    <div class="hud" aria-hidden="true">
-        <div class="hud__tl">ATULCHAHAR.DEV</div>
-        <div class="hud__tr">VOL. 1 / 2026</div>
-        <div class="hud__bottom-line"></div>
-        <div class="hud__bl"><span class="hud__page">P. 001</span></div>
-        <div class="hud__br">
-            <span class="hud__role">/ SYSTEMS BUILDER</span><br>
-            <span class="hud__scroll">↓ SCROLL TO EXPLORE</span>
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <h1 class="hero__title" id="hero-title" data-hero-title>I build AI that asks before it acts<span class="hero__stop" data-stop="start">.</span></h1>
+      <div class="hero__foot" data-hero-foot>
+        <p class="hero__lede">
+          AI engineer in Bengaluru. I build agents, LLM apps and models that run on the phone,
+          and I spend most of my time on the checks that keep them honest.
+        </p>
+        <dl class="hero__facts">
+          <div><dt>Now</dt><dd>Open to a paid internship or a full-time role at an early-stage startup</dd></div>
+          <div><dt>Studying</dt><dd>B.Tech in Computer Science (AI and ML), Polaris School of Technology</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="approach" id="approach" aria-labelledby="approach-title">
+      <h2 class="section-title" id="approach-title">How I work</h2>
+      <ol class="steps" role="list">
+        <li class="step" data-stop="node">
+          <span class="step__num" aria-hidden="true">1</span>
+          <h3 class="step__title">A model proposes.</h3>
+          <p class="step__body">
+            Agents draft the plan, and another agent tries to break it. DENO runs eight of them,
+            with a critic that argues against every startup idea before it gets a verdict.
+          </p>
+        </li>
+        <li class="step" data-stop="node">
+          <span class="step__num" aria-hidden="true">2</span>
+          <h3 class="step__title">Plain code verifies.</h3>
+          <p class="step__body">
+            Nothing a model says is trusted on its own. KILLSWITCH checks every containment step
+            against recorded CloudTrail facts before it is allowed to run.
+          </p>
+        </li>
+        <li class="step" data-stop="node">
+          <span class="step__num" aria-hidden="true">3</span>
+          <h3 class="step__title">A person approves.</h3>
+          <p class="step__body">
+            Anything irreversible waits for a human. In Foreman, auto-approving a dangerous action
+            is a compile-time <code>false</code>, not a setting someone can flip.
+          </p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="work" id="work" aria-labelledby="work-title">
+      <div class="section-head" data-stop="node">
+        <h2 class="section-title" id="work-title">Selected work</h2>
+        <p class="section-note">Eight projects from 2026. Open one for the details.</p>
+      </div>
+
+      <ul class="index" role="list">
+        <li class="row" data-row>
+          <h3 class="row__head">
+            <button class="row__toggle" aria-expanded="false" aria-controls="p-outspoken">
+              <span class="row__name">Outspoken</span>
+              <span class="row__line">People who cannot move or speak talk out loud by blinking at a phone</span>
+              <span class="row__result">On-device, no internet</span>
+              <span class="row__icon" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="row__panel" id="p-outspoken" role="region" aria-label="Outspoken details">
+            <div class="row__clip"><div class="row__inner">
+              <p class="row__desc">
+                A patient on a ventilator or someone with ALS is often awake and clear-headed but cannot
+                say “I am in pain”. Outspoken reads their eyes through the front camera, lets them pick
+                replies or say anything, and speaks it in a natural voice, all on the phone. I shipped
+                14 merged pull requests: the designed screens, 17 languages, the patient profile,
+                Hindi and English switching, a Kokoro voice and safer model loading.
+              </p>
+              <dl class="meta">
+                <div><dt>Role</dt><dd>Contributor, 14 merged pull requests</dd></div>
+                <div><dt>Built with</dt><dd>Kotlin, on-device LLM, Kokoro TTS</dd></div>
+                <div><dt>Year</dt><dd>2026</dd></div>
+                <div><dt>Links</dt><dd><a href="https://github.com/DarkBird10020/outspoken">Source on GitHub</a></dd></div>
+              </dl>
+            </div></div>
+          </div>
+        </li>
+
+        <li class="row" data-row>
+          <h3 class="row__head">
+            <button class="row__toggle" aria-expanded="false" aria-controls="p-deno">
+              <span class="row__name">DENO</span>
+              <span class="row__line">Eight agents decide whether a startup idea is worth building</span>
+              <span class="row__result">2nd place, Lyzr Agentathon</span>
+              <span class="row__icon" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="row__panel" id="p-deno" role="region" aria-label="DENO details">
+            <div class="row__clip"><div class="row__inner">
+              <p class="row__desc">
+                Research, critic, strategy and decision agents run as an adversarial graph: they size the
+                market from the bottom up, find competitors with sources you can click, and map the
+                communities where the first users are. Then a 30-day content engine writes posts in the
+                founder’s voice and scores each one for ban risk before it goes out.
+              </p>
+              <dl class="meta">
+                <div><dt>Role</dt><dd>Builder</dd></div>
+                <div><dt>Built with</dt><dd>Multi-agent orchestration, LLMs, TypeScript</dd></div>
+                <div><dt>Year</dt><dd>2026</dd></div>
+                <div><dt>Links</dt><dd><a href="https://deno-web-eight.vercel.app/">Live site</a></dd></div>
+              </dl>
+            </div></div>
+          </div>
+        </li>
+
+        <li class="row" data-row>
+          <h3 class="row__head">
+            <button class="row__toggle" aria-expanded="false" aria-controls="p-kavach">
+              <span class="row__name">Kavach</span>
+              <span class="row__line">Spots scam calls on the phone itself, in Hindi, Hinglish and English</span>
+              <span class="row__result">Second runner-up, iQOO Hackathon 2026</span>
+              <span class="row__icon" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="row__panel" id="p-kavach" role="region" aria-label="Kavach details">
+            <div class="row__clip"><div class="row__inner">
+              <p class="row__desc">
+                An Android app that listens for scam patterns during a call and warns you while it is still
+                happening. It never asks for internet permission, so nothing you say leaves the phone.
+                One script re-measures all 31 claims in the README, so every number can be checked.
+                Built in 36 hours.
+              </p>
+              <dl class="meta">
+                <div><dt>Role</dt><dd>Builder, student track</dd></div>
+                <div><dt>Built with</dt><dd>Kotlin, on-device LLM, about 13,000 lines and 136 tests</dd></div>
+                <div><dt>Year</dt><dd>2026</dd></div>
+                <div><dt>Links</dt><dd><a href="https://github.com/Atul-Chahar/KAVACH_IQOO">Source on GitHub</a></dd></div>
+              </dl>
+            </div></div>
+          </div>
+        </li>
+
+        <li class="row" data-row>
+          <h3 class="row__head">
+            <button class="row__toggle" aria-expanded="false" aria-controls="p-killswitch">
+              <span class="row__name">KILLSWITCH</span>
+              <span class="row__line">Contains leaked AWS keys before attackers spend your money</span>
+              <span class="row__result">404 tests, built in four days</span>
+              <span class="row__icon" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="row__panel" id="p-killswitch" role="region" aria-label="KILLSWITCH details">
+            <div class="row__clip"><div class="row__inner">
+              <p class="row__desc">
+                Scrapers find a leaked key within minutes. KILLSWITCH catches the leak, reconstructs what
+                the attacker touched from CloudTrail across regions, has a sandboxed model propose a
+                containment plan, checks every step against the audit facts in plain code, and waits for an
+                operator before it disables the key and terminates the attacker’s instances.
+              </p>
+              <dl class="meta">
+                <div><dt>Role</dt><dd>Built with two teammates for First Commit by WeMakeDevs and AWS</dd></div>
+                <div><dt>Built with</dt><dd>Python, AWS CDK, React</dd></div>
+                <div><dt>Year</dt><dd>2026</dd></div>
+                <div><dt>Links</dt><dd><a href="https://killswitch-console.onrender.com">Live console</a>, <a href="https://github.com/Atul-Chahar/KILLSWITCH">source</a></dd></div>
+              </dl>
+            </div></div>
+          </div>
+        </li>
+
+        <li class="row" data-row>
+          <h3 class="row__head">
+            <button class="row__toggle" aria-expanded="false" aria-controls="p-foreman">
+              <span class="row__name">Foreman</span>
+              <span class="row__line">A supervised swarm of coding agents works a backlog in parallel</span>
+              <span class="row__result">118 tests</span>
+              <span class="row__icon" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="row__panel" id="p-foreman" role="region" aria-label="Foreman details">
+            <div class="row__clip"><div class="row__inner">
+              <p class="row__desc">
+                Foreman hands issues to a bounded swarm of AI implementers, each on its own branch inside a
+                sandbox, then merges their work through a serial queue with a reviewer stage. A risk-tier
+                policy stops anything irreversible at a human gate, and state lives in SQLite so a crashed
+                run resumes instead of losing work.
+              </p>
+              <dl class="meta">
+                <div><dt>Role</dt><dd>Builder, Agent Harness Hackathon by WeMakeDevs and TrueFoundry</dd></div>
+                <div><dt>Built with</dt><dd>JavaScript, TrueForge, MCP, SQLite</dd></div>
+                <div><dt>Year</dt><dd>2026</dd></div>
+                <div><dt>Links</dt><dd><a href="https://github.com/Atul-Chahar/Foreman">Source on GitHub</a></dd></div>
+              </dl>
+            </div></div>
+          </div>
+        </li>
+
+        <li class="row" data-row>
+          <h3 class="row__head">
+            <button class="row__toggle" aria-expanded="false" aria-controls="p-elitefolks">
+              <span class="row__name">EliteFolks</span>
+              <span class="row__line">Adaptive coding practice with a voice AI tutor</span>
+              <span class="row__result">About 1,100 sign-ups, 417 active</span>
+              <span class="row__icon" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="row__panel" id="p-elitefolks" role="region" aria-label="EliteFolks details">
+            <div class="row__clip"><div class="row__inner">
+              <p class="row__desc">
+                I founded EliteFolks so students stop solving random problems. It picks the next problem
+                from how you did on the last ones, runs code in the browser in more than 80 languages, and
+                has a tutor you can talk to. It also has courses and live 1v1 coding battles, and it was
+                featured on Product Hunt.
+              </p>
+              <figure class="row__shot">
+                <img src="/images/elitefolks-landing.png" alt="The EliteFolks landing page" loading="lazy" />
+              </figure>
+              <dl class="meta">
+                <div><dt>Role</dt><dd>Founder and lead developer</dd></div>
+                <div><dt>Built with</dt><dd>Next.js, TypeScript, Appwrite, Gemini Live API</dd></div>
+                <div><dt>Year</dt><dd>2026</dd></div>
+                <div><dt>Links</dt><dd><a href="https://elitefolks.com/">elitefolks.com</a></dd></div>
+              </dl>
+            </div></div>
+          </div>
+        </li>
+
+        <li class="row" data-row>
+          <h3 class="row__head">
+            <button class="row__toggle" aria-expanded="false" aria-controls="p-kaagaz">
+              <span class="row__name">Kaagaz</span>
+              <span class="row__line">Tells a student whether they are already too late for a scholarship</span>
+              <span class="row__result">Graph Hacks, WeMakeDevs and FalkorDB</span>
+              <span class="row__icon" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="row__panel" id="p-kaagaz" role="region" aria-label="Kaagaz details">
+            <div class="row__clip"><div class="row__inner">
+              <p class="row__desc">
+                Scheme finders say what you are eligible for. Kaagaz walks the chain of certificates a
+                scholarship needs in a graph, adds up the legal processing time for each, and tells the student
+                which document to apply for today, with a government source for every rule. A watcher agent
+                re-checks the rules against the live government pages.
+              </p>
+              <dl class="meta">
+                <div><dt>Role</dt><dd>Builder</dd></div>
+                <div><dt>Built with</dt><dd>FalkorDB, Cypher, agents</dd></div>
+                <div><dt>Year</dt><dd>2026</dd></div>
+                <div><dt>Links</dt><dd><a href="https://github.com/Atul-Chahar/kaagaz">Source on GitHub</a></dd></div>
+              </dl>
+            </div></div>
+          </div>
+        </li>
+
+        <li class="row" data-row>
+          <h3 class="row__head">
+            <button class="row__toggle" aria-expanded="false" aria-controls="p-aegis">
+              <span class="row__name">AEGIS</span>
+              <span class="row__line">Tourist safety for trails with no signal and no power</span>
+              <span class="row__result">App, backend, dashboard and contracts</span>
+              <span class="row__icon" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="row__panel" id="p-aegis" role="region" aria-label="AEGIS details">
+            <div class="row__clip"><div class="row__inner">
+              <p class="row__desc">
+                Built for places like Meghalaya’s canyons and rainforests. Phones pass incidents to each other
+                over an offline mesh, an authority dashboard shows breadcrumb trails and search heatmaps on a
+                map, and a privacy-preserving digital ID lives on a blockchain.
+              </p>
+              <dl class="meta">
+                <div><dt>Role</dt><dd>Builder</dd></div>
+                <div><dt>Built with</dt><dd>Kotlin, Node, React, Leaflet, Solidity, 48 tests</dd></div>
+                <div><dt>Year</dt><dd>2026</dd></div>
+                <div><dt>Links</dt><dd><a href="https://github.com/Atul-Chahar/AEGIS-Autonomous-Emergency-Geospatial-Identity-Safeguard-">Source on GitHub</a></dd></div>
+              </dl>
+            </div></div>
+          </div>
+        </li>
+      </ul>
+
+      <div class="archive">
+        <h3 class="sub-title">Also built</h3>
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr><th scope="col">Project</th><th scope="col">What it does</th><th scope="col">Built with</th><th scope="col" class="num">Year</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><a href="https://github.com/Atul-Chahar/memex-Database">Memex</a></td><td>Keeps context from my projects and chats so AI agents stop re-reading everything</td><td>Python, FastAPI, MCP</td><td class="num">2026</td></tr>
+              <tr><td><a href="https://atul-chahar.github.io/syntropy/">Syntropy</a></td><td>Photograph a thali, log your sets, talk to a coach that reads both</td><td>Next.js, Capacitor, Gemini</td><td class="num">2026</td></tr>
+              <tr><td><a href="https://github.com/Atul-Chahar/Scripto_-Wemakedevs-hack-">VoldGrid</a></td><td>EV chargers on one map with live prices and a source for every record</td><td>Bright Data, MapLibre</td><td class="num">2026</td></tr>
+              <tr><td><a href="https://github.com/Atul-Chahar/CSUF-SETU">SETU</a></td><td>Finds potholes and broken manholes in dashcam video and files the work order</td><td>Computer vision, in progress</td><td class="num">2026</td></tr>
+              <tr><td><a href="https://github.com/Atul-Chahar/GBM_Simulator">BTC range forecaster</a></td><td>Predicts the next-hour 95% price range for the AlphaI and Polaris challenge</td><td>Python, GBM, FIGARCH</td><td class="num">2026</td></tr>
+              <tr><td>Aria</td><td>A voice-first AI desk companion for students and solo builders</td><td>Next.js, in progress</td><td class="num">2026</td></tr>
+              <tr><td><a href="https://crop-guard-jade.vercel.app/">CropGuard</a></td><td>Crop insurance that pays out on verified weather data, no claim forms</td><td>Solidity, Flare</td><td class="num">2025</td></tr>
+              <tr><td>XRGuard</td><td>Social recovery and price-aware spending limits for Flare smart accounts</td><td>Solidity, Hardhat</td><td class="num">2025</td></tr>
+              <tr><td><a href="https://atul-chahar.github.io/Web-Paint-Benchmark/">Web Paint Benchmark</a></td><td>A website auditor and a lab that stress-tests browser rendering</td><td>JavaScript, PageSpeed API</td><td class="num">2025</td></tr>
+              <tr><td>Pika-Forge</td><td>A Debian Sid gaming distro with Hyprland and a tuned kernel</td><td>Linux, shell, in progress</td><td class="num">2025</td></tr>
+              <tr><td><a href="https://poki-chess-pokemon-chess-app.vercel.app">Poké Chess</a></td><td>Chess with Pokémon pieces and full rules from chess.js</td><td>React, TypeScript</td><td class="num">2025</td></tr>
+            </tbody>
+          </table>
         </div>
-    </div>
+      </div>
+    </section>
 
-    <main>
-        <!-- ===== P.001 — HERO ===== -->
-        <section class="section section--hero" id="hero" data-page="001">
-            <div class="hero__content">
-                <div class="hero__name-wrap">
-                    <h1 class="hero__name">
-                        <span class="hero__name-line hero__name-line--first" data-animate="char">ATUL</span>
-                        <span class="hero__name-line hero__name-line--last" data-animate="char">CHAHAR</span>
-                    </h1>
-                </div>
-            </div>
-        </section>
+    <section class="record" id="record" aria-labelledby="record-title">
+      <div class="section-head" data-stop="node">
+        <h2 class="section-title" id="record-title">Record</h2>
+        <p class="section-note">Hackathons, contests and events, newest first.</p>
+      </div>
 
-        <!-- ===== P.002 — MANIFESTO ===== -->
-        <section class="section section--manifesto" id="manifesto" data-page="002">
-            <div class="manifesto__content">
-                <div class="manifesto__headline">
-                    <div class="manifesto__line">BUILD THINGS THAT MATTER.</div>
-                    <div class="manifesto__line manifesto__line--indent">BREAK THINGS THAT DON'T.</div>
-                    <div class="manifesto__line">KEEP BUILDING.</div>
-                </div>
-            </div>
-        </section>
+      <ol class="timeline" role="list">
+        <li><time datetime="2026-10">Oct 2026</time><span class="tl__event">Graph Hacks, WeMakeDevs and FalkorDB</span><span class="tl__what">Built Kaagaz</span></li>
+        <li><time datetime="2026-09">Sep 2026</time><span class="tl__event">First Commit, WeMakeDevs and AWS</span><span class="tl__what">Built KILLSWITCH with two teammates in four days</span></li>
+        <li class="is-win"><time datetime="2026-08">Aug 2026</time><span class="tl__event">iQOO Hackathon 2026</span><span class="tl__what">Second runner-up, student track, with Kavach</span></li>
+        <li><time datetime="2026-08">Aug 2026</time><span class="tl__event">Agent Harness Hackathon, WeMakeDevs and TrueFoundry</span><span class="tl__what">Built Foreman</span></li>
+        <li><time datetime="2026-08">Aug 2026</time><span class="tl__event">Into the Scrape-Verse, WeMakeDevs and Bright Data</span><span class="tl__what">Built VoldGrid</span></li>
+        <li class="is-win"><time datetime="2026">2026</time><span class="tl__event">Lyzr Agentathon</span><span class="tl__what">2nd place with DENO</span></li>
+        <li class="is-win"><time datetime="2026">2026</time><span class="tl__event">Fund My Crazy, Google Gemini student contest</span><span class="tl__what">Top 50 of about 47,000 entries</span></li>
+        <li class="is-win"><time datetime="2026">2026</time><span class="tl__event">Tata Imagination Challenge</span><span class="tl__what">Semi-finalist</span></li>
+        <li><time datetime="2026">2026</time><span class="tl__event">Vibecon 2026</span><span class="tl__what">Hacked at the event</span></li>
+        <li><time datetime="2026-05">May 2026</time><span class="tl__event">AlphaI and Polaris forecasting challenge</span><span class="tl__what">Built the BTC range forecaster</span></li>
+      </ol>
 
-        <!-- ===== P.003 — WHO AM I ===== -->
-        <section class="section section--about" id="about" data-page="003">
-            <div class="about__center-line"></div>
-            <div class="about__split">
-                <!-- LEFT: THE CODE -->
-                <div class="about__half about__half--left">
-                    <div class="about__content-wrap">
-                        <span class="about__label" data-about-animate>THE CODE</span>
-                        <h2 class="about__heading" data-about-animate>WHAT<br>I BUILD</h2>
-                        <div class="about__rows" data-about-animate>
-                            <div class="about__row">
-                                <span class="about__row-label">LANGS</span>
-                                <span class="about__row-value">Python · Go · TypeScript · JavaScript · C</span>
-                            </div>
-                            <div class="about__row">
-                                <span class="about__row-label">FRONT</span>
-                                <span class="about__row-value">React · Next.js · HTML · CSS</span>
-                            </div>
-                            <div class="about__row">
-                                <span class="about__row-label">BACK</span>
-                                <span class="about__row-value">Node.js · REST · Appwrite</span>
-                            </div>
-                            <div class="about__row">
-                                <span class="about__row-label">TOOLS</span>
-                                <span class="about__row-value">Git · Docker · Linux · Figma</span>
-                            </div>
-                            <div class="about__row">
-                                <span class="about__row-label">AI/ML</span>
-                                <span class="about__row-value">TensorFlow · PyTorch · Scikit-learn</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      <div class="split">
+        <div class="oss">
+          <h3 class="sub-title">Open source</h3>
+          <ul class="plain-list" role="list">
+            <li>
+              <a href="https://github.com/CCExtractor/ccextractor">CCExtractor</a>
+              <p>Three merged fixes: frame delays in CEA-708 captions, an invalid free across MSVC runtimes, and a filter bug in the sample platform.</p>
+            </li>
+            <li>
+              <a href="https://github.com/DarkBird10020/outspoken">Outspoken</a>
+              <p>Fourteen merged pull requests, from the designed screens to model loading.</p>
+            </li>
+            <li>
+              <a href="https://github.com/keploy">Keploy</a>
+              <p>Rust Actix and Ruby Sinatra quickstarts with PostgreSQL, and fixes to the blog site.</p>
+            </li>
+            <li>
+              <a href="https://github.com/CERT-Polska/Artemis">Artemis by CERT Polska</a>
+              <p>Replaced hard-coded URL paths in the scanner’s templates.</p>
+            </li>
+          </ul>
+        </div>
+        <div class="now">
+          <h3 class="sub-title">Right now</h3>
+          <ul class="plain-list" role="list">
+            <li><p>Building the web version of DENO, so people don’t need several paid subscriptions to use it.</p></li>
+            <li><p>Growing Memex and KILLSWITCH.</p></li>
+            <li><p>Working through Stanford’s Probability for AI.</p></li>
+            <li><p>Writing about agents and on-device AI on <a href="https://x.com/atulchahar77">X</a> and <a href="https://www.linkedin.com/in/atul-chahar/">LinkedIn</a>.</p></li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-                <!-- RIGHT: THE CULTURE -->
-                <div class="about__half about__half--right">
-                    <div class="about__content-wrap">
-                        <span class="about__label" data-about-animate>THE CULTURE</span>
-                        <h2 class="about__heading" data-about-animate>WHAT<br>MOVES ME</h2>
-                        <div class="about__rows" data-about-animate>
-                            <div class="about__row">
-                                <span class="about__row-label">PLAY</span>
-                                <span class="about__row-value">PC Gaming</span>
-                            </div>
-                            <div class="about__row">
-                                <span class="about__row-label">WATCH</span>
-                                <span class="about__row-value">Anime · Sci-Fi</span>
-                            </div>
-                            <div class="about__row">
-                                <span class="about__row-label">BUILD</span>
-                                <span class="about__row-value">3D Printing · Hardware</span>
-                            </div>
-                            <div class="about__row">
-                                <span class="about__row-label">READ</span>
-                                <span class="about__row-value">Science · History · Biographies</span>
-                            </div>
-                            <div class="about__row">
-                                <span class="about__row-label">ICON</span>
-                                <span class="about__row-value">Nikola Tesla</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <span class="contact__stop" data-stop="end" aria-hidden="true"></span>
+      <div class="contact__fill" data-contact-fill aria-hidden="true"></div>
+      <div class="contact__inner">
+        <h2 class="contact__title" id="contact-title">Building something that has to be right?</h2>
+        <p class="contact__lede">I’m looking for a paid internship or a full-time role at an early-stage team in Bengaluru.</p>
+        <a class="contact__mail" href="mailto:atulchahar1206@gmail.com">atulchahar1206@gmail.com</a>
+        <ul class="contact__links" role="list">
+          <li><a href="https://github.com/Atul-Chahar">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/atul-chahar/">LinkedIn</a></li>
+          <li><a href="https://x.com/atulchahar77">X</a></li>
+          <li><a href="https://leetcode.com/u/Atul_Chahar">LeetCode</a></li>
+          <li><a href="https://codeforces.com/profile/Atul_Chahar">Codeforces</a></li>
+        </ul>
+        <p class="contact__foot">© 2026 Atul Chahar. Built with Vite, GSAP and Lenis.</p>
+      </div>
+    </section>
+  </main>
 
-        <!-- ===== P.004 — WORK ===== -->
-        <section class="section section--work" id="work" data-page="004">
-            <div class="section__inner">
-                <div class="section__header" data-animate="fade-up">
-                    <span class="section__label">P. 004 / PROJECTS</span>
-                    <h2 class="section__title">SELECTED WORK</h2>
-                </div>
-
-                <!-- Project 1: EliteFolks (Featured) -->
-                <a href="https://elitefolks.com/" target="_blank" rel="noopener noreferrer" class="work__card work__card--featured" data-animate="fade-up" id="project-elitefolks">
-                    <div class="work__card-header">
-                        <span class="work__card-num">01</span>
-                        <span class="work__card-arrow">↗</span>
-                    </div>
-                    <div class="work__card-img">
-                        <img src="/src/assets/images/elitefolks-landing.png" alt="EliteFolks — AI Coding Platform" loading="lazy" />
-                    </div>
-                    <div class="work__card-body">
-                        <h3 class="work__card-title">ELITEFOLKS</h3>
-                        <p class="work__card-desc">AI Coding Assistant & Training Arena</p>
-                        <p class="work__card-detail">An AI-powered coding platform with adaptive question recommendations, interactive courses, and real-time 1v1 coding arenas. Featured on Product Hunt.</p>
-                        <div class="work__card-meta">
-                            <div class="work__card-tags">
-                                <span class="work__tag">NEXT.JS</span>
-                                <span class="work__tag">REACT</span>
-                                <span class="work__tag">APPWRITE</span>
-                                <span class="work__tag">GSAP</span>
-                                <span class="work__tag">AI/ML</span>
-                            </div>
-                            <div class="work__card-stats">
-                                <span>CEO & LEAD DEV</span>
-                                <span>·</span>
-                                <span>53+ BETA USERS</span>
-                                <span>·</span>
-                                <span>LIVE</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Project 2: PIKA-FORGE -->
-                <a href="https://github.com/Atul-Chahar" target="_blank" rel="noopener noreferrer" class="work__card" data-animate="fade-up" id="project-pikaforge">
-                    <div class="work__card-header">
-                        <span class="work__card-num">02</span>
-                        <span class="work__card-arrow">↗</span>
-                    </div>
-                    <div class="work__card-body">
-                        <h3 class="work__card-title">PIKA-FORGE</h3>
-                        <p class="work__card-desc">Universal Gaming OS</p>
-                        <p class="work__card-detail">Custom Linux distribution based on Debian Sid with Hyprland and PikaOS kernel optimizations. Built for universal hardware compatibility and gaming performance.</p>
-                        <div class="work__card-meta">
-                            <div class="work__card-tags">
-                                <span class="work__tag">LINUX</span>
-                                <span class="work__tag">DEBIAN</span>
-                                <span class="work__tag">HYPRLAND</span>
-                                <span class="work__tag">KERNEL</span>
-                                <span class="work__tag">SHELL</span>
-                            </div>
-                            <div class="work__card-stats">
-                                <span>IN DEVELOPMENT</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Project 3: Open Source -->
-                <a href="https://github.com/Atul-Chahar" target="_blank" rel="noopener noreferrer" class="work__card" data-animate="fade-up" id="project-opensource">
-                    <div class="work__card-header">
-                        <span class="work__card-num">03</span>
-                        <span class="work__card-arrow">↗</span>
-                    </div>
-                    <div class="work__card-body">
-                        <h3 class="work__card-title">OPEN-SOURCE</h3>
-                        <p class="work__card-desc">Merged PRs That Ship</p>
-                        <p class="work__card-detail">Active contributor with merged pull requests across multiple organizations. Building in public, shipping real code to real users.</p>
-                        <div class="work__card-meta">
-                            <div class="work__card-tags">
-                                <span class="work__tag">CCEXTRACTOR</span>
-                                <span class="work__tag">SAMPLE PLATFORM</span>
-                                <span class="work__tag">KEPLOY</span>
-                                <span class="work__tag">ARTEMIS</span>
-                                <span class="work__tag">INTELOWL</span>
-                            </div>
-                            <div class="work__card-stats">
-                                <span>MERGED PRs</span>
-                                <span>·</span>
-                                <span>5+ ORGANIZATIONS</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </section>
-
-        <!-- ===== P.005 — RIGHT NOW ===== -->
-        <section class="section section--now" id="now" data-page="005">
-            <div class="section__inner">
-                <div class="section__header" data-animate="fade-up">
-                    <span class="section__label">P. 005 / STATUS</span>
-                    <h2 class="section__title">RIGHT NOW</h2>
-                </div>
-                <div class="now__grid" data-animate="fade-up">
-                    <div class="now__row">
-                        <span class="now__label">BUILDING</span>
-                        <span class="now__dots"></span>
-                        <span class="now__value">ELITEFOLKS V2</span>
-                    </div>
-                    <div class="now__row">
-                        <span class="now__label">LEARNING</span>
-                        <span class="now__dots"></span>
-                        <span class="now__value">GO · ML / AI</span>
-                    </div>
-                    <div class="now__row">
-                        <span class="now__label">HACKING</span>
-                        <span class="now__dots"></span>
-                        <span class="now__value"><a href="https://vibecon.com/" target="_blank" rel="noopener noreferrer" class="now__link">VIBECON 2026 ↗</a></span>
-                    </div>
-                    <div class="now__row">
-                        <span class="now__label">AIMING</span>
-                        <span class="now__dots"></span>
-                        <span class="now__value">GSOC · LFX · ESA/ESOC</span>
-                    </div>
-                    <div class="now__row">
-                        <span class="now__label">STUDYING</span>
-                        <span class="now__dots"></span>
-                        <span class="now__value">B.TECH CS (AI/ML) — POLARIS SCHOOL OF TECHNOLOGY</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== P.006 — CONTACT ===== -->
-        <section class="section section--contact" id="contact" data-page="006">
-            <div class="section__inner">
-                <div class="contact__content">
-                    <span class="section__label" data-animate="fade-up">P. 006 / CONNECT</span>
-                    <h2 class="contact__heading" data-animate="fade-up">LET'S CONNECT.</h2>
-                    <a href="mailto:atulchahar1206@gmail.com" class="contact__email" data-animate="fade-up" id="contact-email">
-                        ATULCHAHAR1206<span class="contact__email-at">@</span>GMAIL.COM
-                    </a>
-                    <div class="contact__links" data-animate="fade-up">
-                        <a href="https://github.com/Atul-Chahar" target="_blank" rel="noopener noreferrer" class="contact__link" id="link-github">
-                            <span>GITHUB</span><span class="contact__link-arrow">↗</span>
-                        </a>
-                        <a href="https://www.linkedin.com/in/atul-chahar/" target="_blank" rel="noopener noreferrer" class="contact__link" id="link-linkedin">
-                            <span>LINKEDIN</span><span class="contact__link-arrow">↗</span>
-                        </a>
-                        <a href="https://leetcode.com/u/Atul_Chahar" target="_blank" rel="noopener noreferrer" class="contact__link" id="link-leetcode">
-                            <span>LEETCODE</span><span class="contact__link-arrow">↗</span>
-                        </a>
-                        <a href="https://codeforces.com/profile/Atul_Chahar" target="_blank" rel="noopener noreferrer" class="contact__link" id="link-codeforces">
-                            <span>CODEFORCES</span><span class="contact__link-arrow">↗</span>
-                        </a>
-                    </div>
-                </div>
-                <footer class="footer" data-animate="fade-up">
-                    <div class="footer__line"></div>
-                    <div class="footer__content">
-                        <span>© 2026 ATUL CHAHAR</span>
-                        <span>BUILT RAW · SHIPPED WITH INTENT</span>
-                    </div>
-                </footer>
-            </div>
-        </section>
-    </main>
-
-    <script type="module" src="/src/main.js"></script>
+  <script type="module" src="/src/main.js"></script>
 </body>
 </html>
