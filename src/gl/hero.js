@@ -14,15 +14,18 @@ const PAPER = '#e8eae4';
 const MIST = '#9aa3c7';
 const COBALT = '#5468ff';
 
-export function createHero(canvas, { reduced = false } = {}) {
+export function createHero(canvas, { reduced = false, q } = {}) {
   let renderer;
   try {
-    renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' });
+    renderer = new THREE.WebGLRenderer({ canvas, antialias: q.aa, powerPreference: 'high-performance' });
   } catch {
     return null;
   }
   const small = matchMedia('(max-width: 900px)').matches;
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, small ? 1.5 : 2));
+  let dprCap = Math.min(q.dpr, small ? 1.5 : 2);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, dprCap));
+  // The glass refracts a copy of the scene; that copy can be cheaper.
+  renderer.transmissionResolutionScale = q.transmission;
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.0;
@@ -91,23 +94,23 @@ export function createHero(canvas, { reduced = false } = {}) {
     transmission: 1,
     thickness: 3.2,
     ior: 1.32,
-    dispersion: 3.5,
-    iridescence: 0.18,
+    dispersion: q.dispersion,
+    iridescence: q.coat ? 0.18 : 0,
     iridescenceIOR: 1.2,
-    clearcoat: 0.6,
+    clearcoat: q.coat ? 0.6 : 0,
     clearcoatRoughness: 0.02,
     specularIntensity: 0.6,
     attenuationColor: new THREE.Color('#c3ccff'),
     attenuationDistance: 8,
     envMapIntensity: 0.35,
   });
-  const lens = new THREE.Mesh(new THREE.SphereGeometry(1.3, small ? 64 : 128, small ? 64 : 128), glass);
+  const lens = new THREE.Mesh(new THREE.SphereGeometry(1.3, Math.min(q.segments, small ? 64 : 128), Math.min(q.segments, small ? 64 : 128)), glass);
   scene.add(lens);
 
   const chrome = new THREE.MeshStandardMaterial({ color: new THREE.Color('#7f8cff'), metalness: 1, roughness: 0.18, envMapIntensity: 1.4 });
   const gate = new THREE.Group();
-  const ringA = new THREE.Mesh(new THREE.TorusGeometry(2.05, 0.035, 24, 220), chrome);
-  const ringB = new THREE.Mesh(new THREE.TorusGeometry(2.35, 0.018, 16, 220), chrome);
+  const ringA = new THREE.Mesh(new THREE.TorusGeometry(2.05, 0.035, q.coat ? 24 : 12, q.coat ? 220 : 140), chrome);
+  const ringB = new THREE.Mesh(new THREE.TorusGeometry(2.35, 0.018, q.coat ? 16 : 8, q.coat ? 220 : 140), chrome);
   ringB.rotation.x = Math.PI / 2.4;
   gate.add(ringA, ringB);
   scene.add(gate);
@@ -117,7 +120,7 @@ export function createHero(canvas, { reduced = false } = {}) {
   scene.add(rim);
 
   /* ---------- Proposals: particles drifting toward the gate ---------- */
-  const COUNT = small ? 700 : 1800;
+  const COUNT = Math.min(q.particles, small ? 700 : 1800);
   const positions = new Float32Array(COUNT * 3);
   const seeds = new Float32Array(COUNT);
   for (let i = 0; i < COUNT; i++) {
@@ -181,9 +184,13 @@ export function createHero(canvas, { reduced = false } = {}) {
   /* ---------- Layout ---------- */
   let width = 1, height = 1;
   const base = new THREE.Vector3();
-  function resize() {
-    width = canvas.clientWidth || window.innerWidth;
-    height = canvas.clientHeight || window.innerHeight;
+  function resize(force = false) {
+    const w = canvas.clientWidth || window.innerWidth;
+    const h = canvas.clientHeight || window.innerHeight;
+    // Phones fire resize when the address bar moves; the canvas is 100svh
+    // so its size doesn't change and there is nothing to redo.
+    if (!force && w === width && h === height) return;
+    width = w; height = h;
     renderer.setSize(width, height, false);
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
@@ -243,19 +250,32 @@ export function createHero(canvas, { reduced = false } = {}) {
     renderer.render(scene, camera);
   }
 
-  resize();
-  window.addEventListener('resize', resize);
+  resize(true);
+  const onResize = () => resize();
+  window.addEventListener('resize', onResize);
   if (document.fonts) document.fonts.ready.then(() => drawName(width, height));
+
+  // Compile every shader before the intro starts, off the main thread
+  // where the browser supports it, so the first frames don't stall.
+  const ready = renderer.compileAsync(scene, camera).catch(() => {});
 
   return {
     intro,
+    ready,
     render,
     resize,
+    setDpr(cap) {
+      dprCap = Math.min(dprCap, cap);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, dprCap));
+      renderer.setSize(width, height, false);
+      pMat.uniforms.uPixel.value = renderer.getPixelRatio();
+    },
+    get dpr() { return renderer.getPixelRatio(); },
     setProgress(p) { progress = Math.max(0, Math.min(1.2, p)); },
     destroy() {
       io.disconnect();
       window.removeEventListener('pointermove', onMove);
-      window.removeEventListener('resize', resize);
+      window.removeEventListener('resize', onResize);
       renderer.dispose();
     },
   };

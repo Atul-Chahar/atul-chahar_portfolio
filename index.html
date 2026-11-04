@@ -39,15 +39,10 @@
 
   <main id="main" class="page" data-page>
     <svg class="thread" data-thread aria-hidden="true" focusable="false">
-      <defs>
-        <filter id="glow" x="-200%" y="-200%" width="500%" height="500%">
-          <feGaussianBlur stdDeviation="6" result="b" />
-          <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
-        </filter>
-      </defs>
       <path class="thread__ghost" data-thread-ghost />
       <path class="thread__line" data-thread-line />
-      <circle class="thread__head" data-thread-head r="5" filter="url(#glow)" />
+      <circle class="thread__halo" data-thread-halo r="16" />
+      <circle class="thread__head" data-thread-head r="5" />
     </svg>
 
     <!-- ============ HERO ============ -->

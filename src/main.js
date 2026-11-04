@@ -4,6 +4,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from 'gsap/SplitText';
 import { createThread } from './ui/thread.js';
+import { detectTier, SETTINGS } from './perf.js';
 import { setupWork, setupCases } from './ui/work.js';
 import {
   setupWords, setupTitles, setupMarquee, setupRooms, setupPreview,
@@ -19,10 +20,13 @@ const reduced = !forceFull && matchMedia('(prefers-reduced-motion: reduce)').mat
 if (forceFull) root.classList.add('motion-full');
 if (reduced) root.classList.add('no-motion');
 
-const hasWebGL = (() => {
-  try { const c = document.createElement('canvas'); return !!(c.getContext('webgl2') || c.getContext('webgl')); }
-  catch { return false; }
-})();
+const { tier, webgl: hasWebGL } = detectTier();
+const q = SETTINGS[tier];
+root.classList.add(`perf-${tier}`);
+ScrollTrigger.config({ ignoreMobileResize: true });
+
+// Start fetching three.js right away, in parallel with the fonts.
+const glModules = hasWebGL ? Promise.all([import('./gl/hero.js'), import('./gl/media.js')]) : null;
 
 /* Shared motion state read by the shaders and the marquee. */
 const motion = { velX: 0, velY: 0 };
@@ -30,7 +34,7 @@ const motion = { velX: 0, velY: 0 };
 /* ---------- Smooth scroll on GSAP's ticker ---------- */
 let lenis = null;
 if (!reduced) {
-  lenis = new Lenis({ lerp: 0.085, smoothWheel: true, autoRaf: false });
+  lenis = new Lenis({ lerp: 0.1, smoothWheel: true, autoRaf: false });
   lenis.on('scroll', ScrollTrigger.update);
   gsap.ticker.add((t) => lenis.raf(t * 1000));
   gsap.ticker.lagSmoothing(0);
@@ -56,14 +60,17 @@ async function boot() {
 
   /* ---------- WebGL layers, loaded on demand ---------- */
   let hero = null, media = null;
-  if (hasWebGL) {
-    const [{ createHero }, { createMedia }] = await Promise.all([import('./gl/hero.js'), import('./gl/media.js')]);
-    hero = createHero(document.querySelector('[data-hero-gl]'), { reduced });
+  if (glModules) {
+    const [{ createHero }, { createMedia }] = await glModules;
+    hero = createHero(document.querySelector('[data-hero-gl]'), { reduced, q });
     if (hero) root.classList.add('gl-hero');
     if (!reduced) {
-      media = createMedia(document.querySelector('[data-gl-media]'), { motion });
+      media = createMedia(document.querySelector('[data-gl-media]'), { motion, q });
       if (media) root.classList.add('gl-on');
     }
+    // Wait for shaders to compile (capped) so the intro doesn't stutter.
+    const timeout = new Promise((r) => setTimeout(r, 1800));
+    await Promise.race([Promise.all([hero?.ready, media?.ready]), timeout]);
   }
 
   /* ---------- Sections ---------- */
@@ -84,8 +91,30 @@ async function boot() {
   thread.build();
 
   /* ---------- One loop for everything ---------- */
+  /* Governor: if frames stay slow, lower the WebGL pixel ratio a step. */
+  const steps = [1.5, 1.25, 1, 0.75];
+  let step = steps.findIndex((d) => d < Math.min(window.devicePixelRatio, q.dpr));
+  if (step < 0) step = steps.length;
+  let acc = 0, frames = 0, warmup = 3;
+  const govern = (deltaMs) => {
+    if (deltaMs > 250 || document.hidden) return; // tab switch, not slowness
+    acc += deltaMs; frames++;
+    if (acc < 1000) return;
+    const avg = acc / frames;
+    acc = 0; frames = 0;
+    if (warmup > 0) { warmup--; return; } // skip loading and the intro
+    if (avg > 24 && step < steps.length) {
+      hero?.setDpr(steps[step]);
+      media?.setDpr(Math.max(0.75, steps[step]));
+      step++;
+    }
+  };
+
+  // ?debug=perf collects per-part timings in window.__prof.
+  const prof = new URLSearchParams(location.search).get('debug') === 'perf' ? (window.__prof = {}) : null;
   let lastY = scrollY();
   gsap.ticker.add((time, deltaMs) => {
+    govern(deltaMs);
     const dt = Math.min(deltaMs / 1000, 0.05);
     const y = scrollY();
     const rawVY = (y - lastY);
@@ -93,12 +122,18 @@ async function boot() {
     motion.velY += (gsap.utils.clamp(-60, 60, rawVY) - motion.velY) * 0.2;
     motion.velX *= 0.92;
 
+    const T = prof ? performance.now : null;
+    let t = T && T.call(performance);
+    const mark = (k) => { if (!T) return; const n = T.call(performance); prof[k] = (prof[k] || 0) + n - t; t = n; };
     if (hero) {
       hero.setProgress(y / window.innerHeight);
       hero.render(dt);
     }
+    mark('hero');
     media?.render(dt);
+    mark('media');
     thread.draw();
+    mark('thread');
     tickMarquee?.(dt);
     tickPreview?.();
     tickCursor?.();
@@ -112,7 +147,16 @@ async function boot() {
     queued = true;
     requestAnimationFrame(() => { queued = false; ScrollTrigger.refresh(); thread.build(); });
   };
-  window.addEventListener('resize', rebuild);
+  // Only width changes (or big height changes on desktop) move the layout;
+  // phones resize on every address-bar slide and must ignore that.
+  const touch = matchMedia('(pointer: coarse)').matches;
+  let vw = window.innerWidth, vh = window.innerHeight;
+  window.addEventListener('resize', () => {
+    const w = window.innerWidth, h = window.innerHeight;
+    if (w === vw && (touch || Math.abs(h - vh) < 80)) return;
+    vw = w; vh = h;
+    rebuild();
+  });
   window.addEventListener('load', rebuild);
   ScrollTrigger.addEventListener('refresh', () => thread.build());
 
@@ -134,7 +178,12 @@ async function boot() {
   tl.from(split.lines, { yPercent: 115, duration: 1.3, stagger: 0.1 }, 0.6)
     .from(metas, { autoAlpha: 0, y: 14, duration: 1, stagger: 0.08 }, 1.0);
   root.classList.remove('is-loading');
-  tl.then(() => { split.revert(); thread.build(); });
+  tl.then(() => {
+    split.revert();
+    thread.build();
+    const idle = window.requestIdleCallback || ((f) => setTimeout(f, 300));
+    idle(() => media?.preloadAll(), { timeout: 2000 });
+  });
 }
 
 boot();

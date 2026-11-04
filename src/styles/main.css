@@ -79,14 +79,17 @@ a:hover { color: var(--line); text-decoration-color: currentColor; }
 .page { position: relative; }
 .page > section, .page > .marquee { position: relative; z-index: 2; }
 
-.gl-media { position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: 1; pointer-events: none; }
-.gl-on [data-gl].is-gl { opacity: 0; }
+.gl-media { position: fixed; left: 0; top: 0; width: 100%; height: 100vh; height: 100lvh; z-index: 1; pointer-events: none; }
+/* WebGL draws these; the <img> keeps layout and alt text but is never painted. */
+.gl-on [data-gl] { opacity: 0; }
 
 .thread { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
 .thread path { fill: none; stroke-linecap: round; stroke-linejoin: round; }
 .thread__ghost { stroke: var(--rule); stroke-width: 1; transition: stroke 700ms; }
 .thread__line { stroke: var(--line); stroke-width: 2; transition: stroke 700ms; }
 .thread__head { fill: var(--line); transition: fill 700ms; }
+.thread__halo { fill: var(--line); fill-opacity: 0.18; transition: fill 700ms; }
+.thread__head, .thread__halo { opacity: 0; }
 
 .node {
   position: absolute; left: calc(var(--thread-x) - var(--gutter) - 6px); top: var(--node-y, 0.6em);
@@ -111,6 +114,8 @@ a:hover { color: var(--line); text-decoration-color: currentColor; }
 .nav { position: fixed; inset: 0 0 auto 0; z-index: 50; display: flex; justify-content: space-between; align-items: baseline; gap: 24px; padding: 22px var(--edge) 16px var(--gutter); font-size: var(--t-small); font-weight: 500; transition: transform var(--m-300) var(--ease-out), color 700ms; }
 .nav::before { content: ''; position: absolute; inset: 0; z-index: -1; background: var(--bg); opacity: 0; transition: opacity var(--m-200), background-color 700ms; }
 .nav.is-scrolled::before { opacity: 0.85; backdrop-filter: blur(10px); }
+/* Blurring a WebGL canvas that changes every frame is costly on integrated GPUs. */
+.perf-low .nav.is-scrolled::before, .perf-mid .nav.is-scrolled::before { opacity: 0.95; backdrop-filter: none; }
 .nav.is-hidden { transform: translateY(-100%); transition-timing-function: var(--ease-in); }
 .nav.is-on-blue { color: var(--paper); }
 .nav.is-on-blue::before { background: var(--cobalt); }
@@ -142,8 +147,9 @@ section { padding-left: var(--gutter); padding-right: var(--edge); }
 .hero__stop { color: var(--cobalt-hi); display: inline-block; }
 .hero__meta { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 8px 40px; margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--rule); color: var(--fg-2); font-size: var(--t-small); }
 .hero__open { color: var(--fg); display: inline-flex; align-items: center; gap: 10px; }
-.pulse { width: 8px; height: 8px; border-radius: 50%; background: #4ade80; animation: pulse 2.4s var(--ease-out) infinite; }
-@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.55); } 100% { box-shadow: 0 0 0 12px rgba(74, 222, 128, 0); } }
+.pulse { position: relative; width: 8px; height: 8px; border-radius: 50%; background: #4ade80; }
+.pulse::after { content: ''; position: absolute; inset: 0; border-radius: 50%; background: #4ade80; animation: pulse 2.4s var(--ease-out) infinite; }
+@keyframes pulse { 0% { transform: scale(1); opacity: 0.55; } 100% { transform: scale(4); opacity: 0; } }
 .hero__scroll { position: absolute; z-index: 1; right: var(--edge); bottom: clamp(28px, 4vw, 56px); font-size: var(--t-small); color: var(--fg-2); writing-mode: vertical-rl; letter-spacing: 0.02em; }
 .js.is-loading .hero__title, .js.is-loading [data-hero-meta] { visibility: hidden; }
 

@@ -27,6 +27,8 @@ export function createThread({ page, scrollY }) {
   let anchors = [];  // [{ y, len, host? }]
   let total = 0;
   let lastDrawn = -1;
+  let pageTop = 0;   // page offset in document space, measured on build
+  const halo = svg.querySelector('[data-thread-halo]');
 
   const rel = (el) => {
     const r = el.getBoundingClientRect();
@@ -58,6 +60,7 @@ export function createThread({ page, scrollY }) {
 
   function build() {
     const pr = page.getBoundingClientRect();
+    pageTop = pr.top + scrollY();
     svg.setAttribute('viewBox', `0 0 ${pr.width} ${pr.height}`);
     segs.forEach((s) => s.el.remove());
     segs = [];
@@ -160,7 +163,7 @@ export function createThread({ page, scrollY }) {
 
   function draw(force = false) {
     if (!segs.length) return;
-    const pageTop = page.getBoundingClientRect().top + scrollY();
+    // No layout reads here: this runs every frame.
     const tipY = scrollY() + window.innerHeight * TIP - pageTop;
     const drawn = lengthAtY(tipY);
     if (!force && Math.abs(drawn - lastDrawn) < 0.3) return;
@@ -173,12 +176,20 @@ export function createThread({ page, scrollY }) {
       if (local > 0 && local < s.len) headPt = pointAt(s, local);
     }
     if (headPt && drawn > 2) {
-      head.setAttribute('cx', headPt[0]);
-      head.setAttribute('cy', headPt[1]);
+      const t = `translate(${headPt[0].toFixed(1)}px, ${headPt[1].toFixed(1)}px)`;
+      head.style.transform = t;
       head.style.opacity = '1';
-    } else head.style.opacity = '0';
+      if (halo) { halo.style.transform = t; halo.style.opacity = '1'; }
+    } else {
+      head.style.opacity = '0';
+      if (halo) halo.style.opacity = '0';
+    }
 
-    for (const a of anchors) if (a.host) a.host.classList.toggle('is-reached', tipY >= a.y - 1);
+    for (const a of anchors) {
+      if (!a.host) continue;
+      const on = tipY >= a.y - 1;
+      if (a.on !== on) { a.on = on; a.host.classList.toggle('is-reached', on); }
+    }
   }
 
   return { build, draw };

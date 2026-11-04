@@ -1,5 +1,6 @@
 import { gsap } from 'gsap';
 import { SplitText } from 'gsap/SplitText';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 /* Reading effect: words light up as the paragraph scrolls past. */
 export function setupWords(reduced) {
@@ -31,9 +32,12 @@ export function setupMarquee({ motion, reduced }) {
   if (!track) return null;
   track.innerHTML += track.innerHTML;
   if (reduced) return null;
-  let x = 0, skew = 0;
+  let x = 0, skew = 0, half = track.scrollWidth / 2;
+  new ResizeObserver(() => { half = track.scrollWidth / 2; }).observe(track);
+  let visible = true;
+  new IntersectionObserver(([e]) => { visible = e.isIntersecting; }).observe(track);
   return (dt) => {
-    const half = track.scrollWidth / 2;
+    if (!visible) return;
     const v = motion.velY;
     x -= (60 + Math.abs(v) * 14) * dt * (v < -0.5 ? -1 : 1);
     if (x <= -half) x += half;
@@ -123,16 +127,23 @@ export function setupTheme() {
 /* Nav: hides on the way down, returns on the way up, turns blue over Contact. */
 export function setupNav(scrollY) {
   const nav = document.querySelector('[data-nav]');
-  const contact = document.querySelector('.contact');
-  let last = 0;
+  // Over Contact: a ScrollTrigger instead of measuring every frame.
+  ScrollTrigger.create({
+    trigger: '.contact',
+    start: () => `top ${nav.offsetHeight}px`,
+    end: 'max',
+    onToggle: (self) => nav.classList.toggle('is-on-blue', self.isActive),
+  });
+  let last = 0, scrolled = null, hidden = null;
   return () => {
     const y = scrollY();
-    nav.classList.toggle('is-scrolled', y > 8);
+    const s = y > 8;
+    if (s !== scrolled) { scrolled = s; nav.classList.toggle('is-scrolled', s); }
     if (Math.abs(y - last) > 6) {
-      nav.classList.toggle('is-hidden', y > last && y > 240 && !nav.contains(document.activeElement));
+      const h = y > last && y > 240 && !nav.contains(document.activeElement);
+      if (h !== hidden) { hidden = h; nav.classList.toggle('is-hidden', h); }
       last = y;
     }
-    nav.classList.toggle('is-on-blue', contact.getBoundingClientRect().top <= nav.offsetHeight);
   };
 }
 
