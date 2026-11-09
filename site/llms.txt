@@ -1,0 +1,46 @@
+# Atul Chahar
+
+> Atul Chahar is an AI engineer and B.Tech student in Bengaluru, India, and the founder of EliteFolks. He builds AI agents, on-device AI and the checks that keep them honest: a model proposes, code verifies, a person approves.
+
+## Quick facts
+
+- Name: Atul Chahar
+- Role: AI engineer; B.Tech student; founder of EliteFolks
+- Location: Bengaluru, Karnataka, India
+- Education: B.Tech in Computer Science (AI and ML), Medhavi Skills University with Polaris School of Technology, Bengaluru, 2025 to 2029
+- Focus: AI agents, on-device AI, verification of model output, human approval for irreversible actions
+- Works with: Claude Code daily; Next.js, TypeScript, Python, Kotlin
+- Open to: a paid internship or a full-time role
+- Website: https://atul-chahar-portfolio.vercel.app/
+- Profile page: https://atul-chahar-portfolio.vercel.app/atul-chahar/
+- GitHub: https://github.com/Atul-Chahar
+- LinkedIn: https://www.linkedin.com/in/atul-chahar/
+- X: https://x.com/atulchahar77
+- LeetCode: https://leetcode.com/u/Atul_Chahar
+- Codeforces: https://codeforces.com/profile/Atul_Chahar
+
+## Awards and results
+
+- Semi-finalist, Tata Imagination Challenge 2026 (Outspoken)
+- Top 50 of about 47,000, Fund My Crazy, Google Gemini 2026 (Rain Bank Streets)
+- Second runner-up, iQOO Hackathon, Bengaluru City Battle 2026 (Kavach)
+- 2nd place and ₹60,000, Lyzr Agentathon 2026 (DENO)
+- National finalist, iQOO Hackathon 2026 Grand Finale (Kavach)
+
+## Selected projects
+
+- **[Outspoken](https://github.com/DarkBird10020/outspoken)** (Accessibility app, 2026): People who can’t move or speak talk out loud by blinking at a phone. It works without the internet. Role: Contributor, 14 merged pull requests. Team project. Semi-finalist, Tata Imagination Challenge 2026. Stack: Kotlin · On-device Gemma · Kokoro TTS.
+- **[DENO](https://deno-web-eight.vercel.app/)** (Multi-agent system, 2026): Eight agents argue over a startup idea and give you a verdict you can defend. Role: Agent design, with Krishiv Agarwal and Siddhartha Singh. 2nd place, Lyzr Agentathon. Stack: Multi-agent orchestration · LLMs · TypeScript.
+- **[Kavach](https://github.com/Atul-Chahar/KAVACH_IQOO)** (On-device scam detection, 2026): Spots scam calls on the phone itself, in Hindi, Hinglish and English. Built in 36 hours, with no internet permission at all. Role: Android and on-device LLM, Team Smoke Test. Second runner-up, iQOO Hackathon 2026, Bengaluru. Stack: Kotlin · On-device LLM · 136 tests.
+- **[KILLSWITCH](https://killswitch-console.onrender.com)** (Cloud security, 2026): Contains leaked AWS keys. A model proposes, code verifies, an operator approves. Built in four days. Role: Architecture, team of three. First Commit, WeMakeDevs and AWS. Stack: Python · AWS CDK · React · 404 tests.
+- **[Foreman](https://github.com/Atul-Chahar/Foreman)** (Agent harness, 2026): A supervised swarm of coding agents works through a backlog in parallel. Anything irreversible waits for a human. Role: Design and build. Agent Harness Hackathon, WeMakeDevs and TrueFoundry. Stack: JavaScript · TrueForge · MCP · SQLite · 118 tests.
+- **[EliteFolks](https://elitefolks.com/)** (Learning platform, 2026): Coding practice that picks your next problem from how you did on the last ones, with a compiler for 80+ languages and a voice tutor. Role: Founder. Since February 2026. About 1,100 sign-ups, 417 active. Stack: Next.js · TypeScript · Appwrite · AWS · n8n · Gemini.
+- **[Kaagaz](https://github.com/Atul-Chahar/kaagaz)** (Graph and agents, 2026): Tells a student whether they’re already too late for a scholarship, with a government source for every rule. Role: Design and build. Graph Hacks, WeMakeDevs and FalkorDB. Stack: FalkorDB · Cypher · Agents.
+- **[AEGIS](https://github.com/Atul-Chahar/AEGIS-Autonomous-Emergency-Geospatial-Identity-Safeguard-)** (Safety platform, 2026): Tourist safety for trails with no signal and no power: an offline mesh, a command map and a digital ID. Role: App, backend, dashboard and contracts. Stack: Kotlin · Node · React · Leaflet · Solidity · 48 tests.
+
+## More
+
+- [Full profile](https://atul-chahar-portfolio.vercel.app/llms-full.txt): every project, open-source contribution, hackathon and event
+- [Profile page](https://atul-chahar-portfolio.vercel.app/atul-chahar/): the same facts as a web page
+
+Last updated: 2026-11-09

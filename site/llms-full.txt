@@ -1,0 +1,99 @@
+# Atul Chahar
+
+> Atul Chahar is an AI engineer and B.Tech student in Bengaluru, India, and the founder of EliteFolks. He builds AI agents, on-device AI and the checks that keep them honest: a model proposes, code verifies, a person approves.
+
+## Quick facts
+
+- Name: Atul Chahar
+- Role: AI engineer; B.Tech student; founder of EliteFolks
+- Location: Bengaluru, Karnataka, India
+- Education: B.Tech in Computer Science (AI and ML), Medhavi Skills University with Polaris School of Technology, Bengaluru, 2025 to 2029
+- Focus: AI agents, on-device AI, verification of model output, human approval for irreversible actions
+- Works with: Claude Code daily; Next.js, TypeScript, Python, Kotlin
+- Open to: a paid internship or a full-time role
+- Website: https://atul-chahar-portfolio.vercel.app/
+- Profile page: https://atul-chahar-portfolio.vercel.app/atul-chahar/
+- GitHub: https://github.com/Atul-Chahar
+- LinkedIn: https://www.linkedin.com/in/atul-chahar/
+- X: https://x.com/atulchahar77
+- LeetCode: https://leetcode.com/u/Atul_Chahar
+- Codeforces: https://codeforces.com/profile/Atul_Chahar
+
+## Awards and results
+
+- Semi-finalist, Tata Imagination Challenge 2026 (Outspoken)
+- Top 50 of about 47,000, Fund My Crazy, Google Gemini 2026 (Rain Bank Streets)
+- Second runner-up, iQOO Hackathon, Bengaluru City Battle 2026 (Kavach)
+- 2nd place and ₹60,000, Lyzr Agentathon 2026 (DENO)
+- National finalist, iQOO Hackathon 2026 Grand Finale (Kavach)
+
+## Selected projects
+
+- **[Outspoken](https://github.com/DarkBird10020/outspoken)** (Accessibility app, 2026): People who can’t move or speak talk out loud by blinking at a phone. It works without the internet. Role: Contributor, 14 merged pull requests. Team project. Semi-finalist, Tata Imagination Challenge 2026. Stack: Kotlin · On-device Gemma · Kokoro TTS.
+  A patient on a ventilator or someone with ALS is often awake and clear-headed but can’t say “I am in pain”. Outspoken reads their eyes through the front camera, lets them pick a reply or spell out anything, and speaks it in a natural voice, all on the phone. My 14 merged pull requests cover the designed screens, 17 languages, the patient profile, switching between Hindi and English, a Kokoro voice and safer model loading.
+- **[DENO](https://deno-web-eight.vercel.app/)** (Multi-agent system, 2026): Eight agents argue over a startup idea and give you a verdict you can defend. Role: Agent design, with Krishiv Agarwal and Siddhartha Singh. 2nd place, Lyzr Agentathon. Stack: Multi-agent orchestration · LLMs · TypeScript.
+  Most AI tools will happily build a landing page for a bad idea. DENO asks first whether the idea should exist. Research, critic, strategy and decision agents challenge each other: they size the market from the bottom up, find competitors with sources you can click, and map the communities where the first users are. Only an idea that survives moves on to a 30-day content plan written in the founder’s voice, with every post scored for ban risk.
+- **[Kavach](https://github.com/Atul-Chahar/KAVACH_IQOO)** (On-device scam detection, 2026): Spots scam calls on the phone itself, in Hindi, Hinglish and English. Built in 36 hours, with no internet permission at all. Role: Android and on-device LLM, Team Smoke Test. Second runner-up, iQOO Hackathon 2026, Bengaluru. Stack: Kotlin · On-device LLM · 136 tests.
+  The pitch opened with a real call: a stranger said my father had sent money, then a fake bank alert for ₹30,000 arrived, then a request to return ₹27,000. Kavach listens for those patterns during a call and warns you while it’s still happening. Everything runs on the phone, and the internet permission is stripped from the manifest so anyone can check. One script re-measures all 31 claims in the README.
+- **[KILLSWITCH](https://killswitch-console.onrender.com)** (Cloud security, 2026): Contains leaked AWS keys. A model proposes, code verifies, an operator approves. Built in four days. Role: Architecture, team of three. First Commit, WeMakeDevs and AWS. Stack: Python · AWS CDK · React · 404 tests.
+  Push an AWS key to GitHub by mistake and bots find it in about five minutes. AWS quarantines the key, but it doesn’t shut down what the attacker already started. KILLSWITCH catches the leak, reads CloudTrail across regions to see what the key did, has a sandboxed model propose a containment plan, checks every line of that plan against the audit facts in plain Python, and waits for an operator before it touches anything. I designed the architecture. Gyan Ranjan built the approval console and Krishna Chaudhary the attacker script.
+- **[Foreman](https://github.com/Atul-Chahar/Foreman)** (Agent harness, 2026): A supervised swarm of coding agents works through a backlog in parallel. Anything irreversible waits for a human. Role: Design and build. Agent Harness Hackathon, WeMakeDevs and TrueFoundry. Stack: JavaScript · TrueForge · MCP · SQLite · 118 tests.
+  Foreman hands issues to a bounded swarm of AI implementers, each on its own branch inside a sandbox, then merges their work through a serial queue with a reviewer stage. A risk-tier policy stops anything irreversible at a human gate. Auto-approving a dangerous step is a compile-time false, not a setting someone can flip. State lives in SQLite, so a crashed run picks up where it stopped. Built on TrueFoundry’s open-source TrueForge harness.
+- **[EliteFolks](https://elitefolks.com/)** (Learning platform, 2026): Coding practice that picks your next problem from how you did on the last ones, with a compiler for 80+ languages and a voice tutor. Role: Founder. Since February 2026. About 1,100 sign-ups, 417 active. Stack: Next.js · TypeScript · Appwrite · AWS · n8n · Gemini.
+  I started EliteFolks so students would stop solving random problems. It runs code in the browser in more than 80 languages, and has a real-time voice tutor, 1v1 coding battles and an AI interview simulator. About 1,100 people signed up and 417 were active, mostly from my college. The first beta had more than 250 users, and it launched on Product Hunt.
+- **[Kaagaz](https://github.com/Atul-Chahar/kaagaz)** (Graph and agents, 2026): Tells a student whether they’re already too late for a scholarship, with a government source for every rule. Role: Design and build. Graph Hacks, WeMakeDevs and FalkorDB. Stack: FalkorDB · Cypher · Agents.
+  Scheme finders tell a student what they’re eligible for. Kaagaz tells them whether they’re already too late. It walks the chain of certificates a scholarship needs in a FalkorDB graph, adds up the legal processing time for each, and names the document to apply for today. A caseworker agent acts only after approval, and a watcher agent re-checks the rules against the live government pages.
+- **[AEGIS](https://github.com/Atul-Chahar/AEGIS-Autonomous-Emergency-Geospatial-Identity-Safeguard-)** (Safety platform, 2026): Tourist safety for trails with no signal and no power: an offline mesh, a command map and a digital ID. Role: App, backend, dashboard and contracts. Stack: Kotlin · Node · React · Leaflet · Solidity · 48 tests.
+  Built for places like Meghalaya’s canyons and rainforests. Phones pass incidents to each other over an offline mesh, an authority dashboard shows breadcrumb trails and search heatmaps on a map, and a privacy-preserving digital ID lives on a blockchain.
+
+## Also built
+
+- 2026: [Memex](https://github.com/Atul-Chahar/memex-Database) (Python, FastAPI, MCP). Keeps context from my projects and chats, so AI agents stop re-reading everything.
+- 2026: [Syntropy](https://atul-chahar.github.io/syntropy/) (Next.js, Capacitor, Gemini). Photograph a thali, log your sets, and talk to a coach that reads both.
+- 2026: [VoldGrid](https://github.com/Atul-Chahar/Scripto_-Wemakedevs-hack-) (Bright Data, MapLibre). EV chargers on one map, with live prices and a source for every record.
+- 2026: [InfraScan](https://github.com/dianellasy/InfraScan) (Python, FastAPI, computer vision). Finds road damage in dashcam video and queues it for review. Built with students at California State University, Fullerton.
+- 2026: [BTC range forecaster](https://github.com/Atul-Chahar/GBM_Simulator) (Python, GBM, FIGARCH). Predicts the next-hour 95% price range, for the AlphaI and Polaris challenge.
+- 2026: Aria (Next.js, in progress). A voice-first AI desk companion for students and solo builders.
+- 2025: [CropGuard](https://crop-guard-jade.vercel.app/) (Solidity, Flare. Built at Flared Up). Crop insurance that pays out on verified weather data. No claim forms.
+- 2025: XRGuard (Solidity, Hardhat). Social recovery and price-aware spending limits for Flare smart accounts.
+- 2025: [Web Paint Benchmark](https://atul-chahar.github.io/Web-Paint-Benchmark/) (JavaScript, PageSpeed API). A website auditor, and a lab that stress-tests browser rendering.
+- 2025: Pika-Forge (Linux, shell, in progress). A Debian Sid gaming distro with Hyprland and a tuned kernel.
+- 2025: [Poké Chess](https://poki-chess-pokemon-chess-app.vercel.app) (React, TypeScript). Chess with Pokémon pieces and the full rules from chess.js.
+
+## Open source
+
+- [CCExtractor](https://github.com/CCExtractor/ccextractor) (3 merged fixes). Frame delays in CEA-708 captions, an invalid free across MSVC runtimes, and a filter bug in the sample platform.
+- [Outspoken](https://github.com/DarkBird10020/outspoken) (14 merged pull requests). From the designed screens to model loading.
+- [Keploy](https://github.com/keploy) (Quickstarts and fixes). Rust Actix and Ruby Sinatra quickstarts with PostgreSQL, and fixes to the blog site.
+- [Artemis by CERT Polska](https://github.com/CERT-Polska/Artemis) (Scanner templates). Replaced hard-coded URL paths in the scanner’s templates.
+
+## Hackathons and events
+
+- Nov 2026: Tata Imagination Challenge (Tata Group, via Unstop). Semi-finalist with Outspoken.
+- Oct 2026: iQOO Hackathon Grand Finale (Bengaluru, 9 to 11 October). Made the national final with Kavach, Team Smoke Test.
+- Oct 2026: Graph Hacks (WeMakeDevs and FalkorDB). Built Kaagaz.
+- Sep 2026: First Commit (WeMakeDevs and AWS). Built KILLSWITCH with two teammates.
+- Sep 2026: Fund My Crazy (Google Gemini student contest). Top 50 of about 47,000 with Rain Bank Streets.
+- Aug 2026: iQOO Hackathon City Battle (Bengaluru, student track). Second runner-up with Kavach, Team Smoke Test.
+- Aug 2026: Agent Harness Hackathon (WeMakeDevs and TrueFoundry). Built Foreman.
+- Aug 2026: Into the Scrape-Verse (WeMakeDevs and Bright Data). Built VoldGrid.
+- May 2026: Forecasting challenge (AlphaI and Polaris). Built the BTC range forecaster.
+- Apr 2026: Lyzr Agentathon (Lyzr, at Polaris). 2nd place with DENO.
+- Apr 2026: Vibecon 2026 (Emergent, at Polaris). Hacked at the event.
+- Jan 2026: AI Engineers Day (OpenAI, Peak XV and Activate). Attended the workshops.
+- Nov 2025: Build on Flare + Flared Up (Flare and Rise In, at Polaris). Certified, built CropGuard.
+- Replit AI Hackathon (Replit). Took part.
+
+## Right now
+
+- Now: [DENO](https://deno-web-eight.vercel.app/) (Web version). So people don’t need several paid subscriptions to use it.
+- Now: [EliteFolks](https://elitefolks.com/) (Founder). Still building it, one feature at a time.
+- Now: [InfraScan](https://github.com/dianellasy/InfraScan) (With CSUF students). Road damage detection, built with students at California State University, Fullerton.
+
+## In his own words
+
+I’m a second-year B.Tech student in Bengaluru who builds agents, automations and LLM apps. AI writes most of my code. I spend my own time on the design, the checks, and the parts that break. Kavach took 36 hours. KILLSWITCH took four days.
+
+B.Tech in Computer Science (AI and ML) at Medhavi Skills University with Polaris School of Technology, 2025 to 2029. I founded EliteFolks in 2026. I work in Claude Code every day, with Next.js, TypeScript, Python and Kotlin underneath. Open to a paid internship or a full-time role.
+
+Last updated: 2026-11-09
