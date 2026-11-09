@@ -1,0 +1,8 @@
+@font-face {
+  font-family: 'Noto Serif JP';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/_ext/fonts.gstatic.com/l/font/index__91ac57a2.html) format('woff2');
+  unicode-range: U+2013-2014, U+2019, U+2026, U+3001-3002, U+300d, U+3044, U+3046, U+3048, U+304b-306b, U+306d-307a, U+307e, U+3081-3082, U+3088-308d, U+308f, U+3092, U+3094, U+3099-309a, U+30a2, U+30a4, U+30a6, U+30aa-30b4, U+30b7-30ba, U+30bf-30c0, U+30c3, U+30c8-30c9, U+30cf-30d1, U+30d5-30da, U+30de, U+30e9-30ec, U+30f4, U+30fb-30fc, U+4e00, U+4e03, U+4e09-4e0a, U+4e8c, U+4e94, U+4f53, U+4f7f, U+5012, U+5149, U+5168, U+516d, U+5203, U+5206-5207, U+524d, U+529b, U+52d5, U+53d6, U+53f0, U+5408, U+540c, U+5468, U+56da-56db, U+56de, U+56f2, U+5834, U+591c, U+5922, U+5927, U+5a01, U+5b9a, U+5bc4, U+5c04, U+5c3d, U+5c4a, U+5de8, U+5e83, U+5ea6, U+5f15, U+5f37, U+5f3e, U+5f53, U+5fa9, U+60aa, U+61b6, U+623b, U+6240, U+6280, U+62b1, U+62fe, U+6301, U+639f, U+6483, U+653b, U+653e, U+6575, U+65b9, U+660e, U+661f, U+6642, U+66f2, U+66f8, U+6700, U+672c, U+679a, U+6b21, U+6c7a, U+6ce2, U+6e1b, U+6e80, U+7121, U+7136, U+72d9, U+753b, U+767a, U+76fe, U+77ed, U+7832, U+79d2, U+79fb, U+7b2c, U+7bc4, U+7d9a, U+7dda, U+80b2, U+81ea, U+843d, U+885d, U+88c2, U+899a, U+89e6, U+8a18, U+8cab, U+8d8a, U+8df3, U+8eab, U+8f2a, U+8fd1, U+8ffd, U+901a, U+901f, U+9023, U+9045, U+9060, U+9078, U+9084, U+9192, U+91cd, U+9593, U+9694, U+96c6, U+9762, U+9801, U+ff09, U+ff1a;
+}
