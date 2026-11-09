@@ -1,15 +1,12 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
-  "installCommand": "",
-  "buildCommand": "",
   "outputDirectory": "site",
   "rewrites": [
     { "source": "/_ext/esm.sh/lenis@1.1.13", "destination": "/_ext/esm.sh/lenis@1.1.13/index.mjs" },
     { "source": "/_ext/esm.sh/three@0.169.0", "destination": "/_ext/esm.sh/three@0.169.0/index.mjs" }
   ],
   "headers": [
-    { "source": "/(.*)\.mjs", "headers": [{ "key": "Content-Type", "value": "text/javascript; charset=utf-8" }] },
     { "source": "/_ext/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }] }
   ]
 }
